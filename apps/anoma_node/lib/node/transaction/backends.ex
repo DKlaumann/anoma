@@ -210,7 +210,7 @@ defmodule Anoma.Node.Transaction.Backends do
               blobs:
                 for {key, {value, bool}} <- action.app_data, reduce: blobs do
                   acc ->
-                    if bool == 0 do
+                    if Noun.equal?(bool, 0) do
                       [{key, value} | acc]
                     else
                       acc
